@@ -1,18 +1,23 @@
 {
   "name": "vue-spa",
   "version": "1.0.0",
-  "description": "",
+  "description": "vue-spa",
   "scripts": {
-      "start": "node server",
+    "start": "node server",
     "test": "echo \"Error: no test specified\"  && exit 1"
   },
+  "repository": {},
   "keywords": [],
   "author": "",
   "license": "MIT",
   "dependencies": {
     "express": "^4.16.2",
-    "vue": "^2.5.9"
+    "vue": "^2.5.9",
+    "webpack-dev-middleware": "^1.12.2",
+    "webpack-hot-middleware": "^2.21.0"
   },
   "devDependencies": {
+    "webpack-dev-middleware": "^1.12.2",
+    "webpack-hot-middleware": "^2.21.0"
   }
 }
