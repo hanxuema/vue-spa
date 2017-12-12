@@ -1,11 +1,12 @@
 import vue from 'vue';
 import AppLayout from './theme/Layout.vue';
+import router from './router'
 
 console.log(AppLayout)
 
 const app = new vue({
-     render: h => h(AppLayout)
-    //...AppLayout
+    router, 
+    ...AppLayout
 });
 
-export { app }
+export { app, router }

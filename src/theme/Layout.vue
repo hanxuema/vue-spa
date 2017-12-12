@@ -3,7 +3,8 @@
       <app-header></app-header>
         <section class="main-section section">
             <div class="container content">
-               <category></category>
+               <!-- <category></category> -->
+               <router-view></router-view>
             </div>
         </section>
         <app-footer></app-footer>
