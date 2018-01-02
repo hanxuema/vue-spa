@@ -19,10 +19,8 @@ import Category from "./Category.vue";
 export default {
   components: {
     "app-header": AppHeader,
-    "app-footer": AppFooter,
-    "category": Category
-  } 
- 
+    "app-footer": AppFooter
+  }
 };
 </script>
 
@@ -31,6 +29,6 @@ $primary: #287ab1;
  @import '~bulma';
 
  .columns{
-     flex-wrap:wrap
+     flex-wrap:wraps
  }
 </style>

@@ -10,38 +10,43 @@
 </template>
 
 <script>
-import Post from "./Post.vue"
+import Post from "./Post.vue";
 import { mapGetters } from "vuex";
-
+const fetchInitialData = (store, route) => {
+  let categoryId = 2;
+  if (route.params.id === "mobile") {
+    categoryId = 11;
+  }
+  return store.dispatch("postsModule/updateCategory", categoryId);
+};
 export default {
-    components:{
-        'app-post': Post
-    },
-   data() {
-    return {
-      id: this.$route.params.id,
-      posts: []
+  asyncData(store, route) {
+    return fetchInitialData(store, route);
+  },
+  components: {
+    "app-post": Post
+  },
+  // data() {
+  //   return {
+  //     id: this.$route.params.id,
+  //     posts: []
+  //   };
+  // },
+  computed: {
+    ...mapGetters("postsModule", ["posts"])
+  },
+  methods: {
+    loadPosts() {
+      fetchInitialData(this.$store, this.$route);
     }
   },
-  computed:{
-      ...mapGetters('postsModule', ['posts'])
+  watch: {
+    '$route' (to, from) {
+      this.loadPosts();
+    }
   },
-  methods : {
-      loadPosts(){
-          var categoryId = 2;
-          if(this.$route.params.id ==='mobile'){
-              categoryId = 11
-          }  
-          this.$store.dispatch('postsModule/updateCategory', categoryId);
-      }
-  },
-  watch : {
-      '$route' (to,from) { 
-          this.loadPosts()
-      }
-  },
-  created (){
-      this.loadPosts()
+  created() {
+    this.loadPosts();
   }
-}
+};
 </script>
